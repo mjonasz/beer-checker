@@ -12,6 +12,10 @@ defmodule BeerChecker do
       :world
 
   """
+  def main() do
+    IO.puts("test")
+  end
+
   def hello do
     :world
   end
