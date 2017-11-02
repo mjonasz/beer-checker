@@ -21,8 +21,17 @@ defmodule BeerChecker.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:httpoison, "~> 0.13"}, # http client
-      {:floki, "~> 0.18.0"} # html parser
+      # http client
+      {:httpoison, "~> 0.13"},
+
+      # html parser
+      {:floki, "~> 0.18.0"},
+
+      # emails
+      {:bamboo, "~> 0.8"},
+
+      # release tool
+      {:distillery, "~> 1.5", runtime: false}
     ]
   end
 end
