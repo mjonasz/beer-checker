@@ -1,21 +1,19 @@
 # BeerChecker
 
-**TODO: Add description**
+**This application will check if certain beers are available to order at the moment.**
 
-## Installation
+## Usage
+It is possible to run this app locally or to release for standalone usage on remote server.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `beer_checker` to your list of dependencies in `mix.exs`:
+### Run locally
+`iex -S mix`
 
-```elixir
-def deps do
-  [
-    {:beer_checker, "~> 0.1.0"}
-  ]
-end
+### Release with distillery
+```bash
+export MIX_ENV=prod # or dev
+mix release # create binaries
+_build/$MIX_ENV/rel/beer_checker/bin/beer_checker foreground # run app in foreground
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/beer_checker](https://hexdocs.pm/beer_checker).
+
 
