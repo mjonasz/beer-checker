@@ -30,6 +30,7 @@ defmodule BeerChecker.Mixfile do
 
       # emails
       {:bamboo, "~> 0.8"},
+      {:bamboo_smtp, "~> 1.4.0"},
 
       # release tool
       {:distillery, "~> 1.5", runtime: false}

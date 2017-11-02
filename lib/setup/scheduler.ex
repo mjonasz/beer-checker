@@ -22,6 +22,6 @@ defmodule BeerChecker.Scheduler do
   end
 
   defp schedule_work() do
-    Process.send_after(self(), :work, 1 * 1000) # every second
+    Process.send_after(self(), :work, 60 * 1000) # every 60 seconds
   end
 end
