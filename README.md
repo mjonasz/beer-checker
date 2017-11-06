@@ -8,6 +8,9 @@ It is possible to run this app locally or to release for standalone usage on rem
 ### Run locally
 `iex -S mix`
 
+### Run tests
+`mix test`
+
 ### Release with distillery
 ```bash
 export MIX_ENV=prod # or dev
