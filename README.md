@@ -15,9 +15,10 @@ It is possible to run this app locally or to release for standalone usage on rem
 ```bash
 export MIX_ENV=prod # or dev
 mix release # create binaries
-_build/$MIX_ENV/rel/beer_checker/bin/beer_checker foreground # run app in foreground
 # upload _build/$MIX_ENV/rel/beer_checker to server
+beer_checker/bin/beer_checker start # run in background
 ```
+Logs can be found in `beer_checker/var/log/`
 
 
 
