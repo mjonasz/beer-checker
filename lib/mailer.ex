@@ -6,13 +6,13 @@ end
 defmodule BeerChecker.Email do
   import Bamboo.Email
 
-  def welcome_email do
+  def send(subject, body) do
     new_email()
     |> to("jonaszmaciej@gmail.com")
     |> from("jajonaszbeers@gmail.com")
-    |> subject("Welcome!!!")
-    |> html_body("<strong>Welcome</strong>")
-    |> text_body("welcome")
+    |> subject(subject)
+    |> text_body(body)
     |> BeerChecker.Mailer.deliver_now
   end
+
 end

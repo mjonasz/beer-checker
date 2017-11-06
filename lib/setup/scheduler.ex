@@ -1,13 +1,14 @@
 defmodule BeerChecker.Scheduler do
   use GenServer
+  require Logger
 
   def start_link(state) do
     GenServer.start_link(__MODULE__, state, name: __MODULE__)
   end
 
   def init(state) do
-    execute()
-    schedule_work() # Schedule work to be performed at some point
+    # we are using delayed first execution to avoid problems with error handling in supervisor init
+    schedule_work(10)
     {:ok, state}
   end
 
@@ -18,10 +19,13 @@ defmodule BeerChecker.Scheduler do
   end
 
   defp execute() do
-    BeerChecker.main()
+    Logger.info("starting scheduled job")
+    results = BeerChecker.main()
+    Logger.info("finished ok")
+    Logger.debug("results: #{inspect(results)}")
   end
 
-  defp schedule_work() do
-    Process.send_after(self(), :work, 60 * 1000) # every 60 seconds
+  defp schedule_work(seconds \\ 60) do
+    Process.send_after(self(), :work, seconds * 1000) # every <seconds> seconds
   end
 end

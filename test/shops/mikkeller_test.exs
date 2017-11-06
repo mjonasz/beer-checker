@@ -8,9 +8,14 @@ defmodule BeerCheckerTest.Mikkeller do
     assert result == :unavailable
   end
 
+  test "check always unavailable beer implicit" do
+    [{result, _}] = check()
+    assert result == :unavailable
+  end
+
   test "check always available beer" do
     url = "https://shop.mikkeller.dk/products/mikkeller-beer-mail"
-    {result, _} = check(url)
+    {result, _} = check_single(url)
     assert result == :available
   end
 end
