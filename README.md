@@ -1,6 +1,6 @@
 # BeerChecker
 
-**This application will check if certain beers are available to order at the moment.**
+**Simple app to monitor rare beers sales with email notifications**
 
 ## Usage
 It is possible to run this app locally or to release for standalone usage on remote server.
