@@ -16,6 +16,7 @@ It is possible to run this app locally or to release for standalone usage on rem
 export MIX_ENV=prod # or dev
 mix release # create binaries
 _build/$MIX_ENV/rel/beer_checker/bin/beer_checker foreground # run app in foreground
+# upload _build/$MIX_ENV/rel/beer_checker to server
 ```
 
 
