@@ -20,5 +20,13 @@ beer_checker/bin/beer_checker start # run in background
 ```
 Logs can be found in `beer_checker/var/log/`
 
+### TODO
+* extract **from** and **to** email fields to config (secret?)
+* allow multiple email recipients
+* systemd (start/stop/etc)
+* logger configuration (/var/log/...)
+* ansible (building and deployment)
+* better tests
+* add more beers to check
 
 
