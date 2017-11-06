@@ -11,7 +11,7 @@ defmodule BeerChecker do
   end
 
   def send_beer_status({:unknown, url, response}) do
-    BeerChecker.Email.send("Beer unknown status: #{url}", inspect(response))
+    BeerChecker.Email.send("Beer status unknown: #{url}", inspect(response))
     :unknown
   end
 
