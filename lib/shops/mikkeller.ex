@@ -14,7 +14,7 @@ defmodule BeerChecker.Mikkeller do
   end
 
   defp parse_availability(body) do
-    if body =~ "Unavailable" do
+    if String.downcase(body) =~ "unavailable" do
       :unavailable
     else
       :available
