@@ -1,0 +1,7 @@
+version: '3'
+services:
+  beer-checker:
+    build: .
+    command: bin/release_local.sh
+    volumes:
+      - .:/app
