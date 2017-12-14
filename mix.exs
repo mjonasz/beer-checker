@@ -26,7 +26,7 @@ defmodule BeerChecker.Mixfile do
       {:httpoison, "~> 0.13"},
 
       # html parser
-      {:floki, "~> 0.18.0"},
+      {:floki, "~> 0.19.0"},
 
       # emails
       {:bamboo, "~> 0.8"},

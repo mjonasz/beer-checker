@@ -7,18 +7,31 @@ defmodule BeerChecker.Mikkeller do
   end
 
   def check_single(url) do
-    case HTTPoison.get( url) do
-      {:ok, %HTTPoison.Response{status_code: 200, body: body}} -> {parse_availability(body), url}
-      {_status, response} -> {:unknown, url, response}
+    case HTTPoison.get(url) do
+      {:ok, response} -> {parse_response(response), url, response}
+      {_, response} -> {:unknown, url, response}
     end
   end
 
-  defp parse_availability(body) do
-    if String.downcase(body) =~ "unavailable" do
-      :unavailable
-    else
-      :available
+  defp parse_response(response) do
+    case response do
+      %HTTPoison.Response{status_code: 200, body: body} -> parse_availability(body)
+      _response -> :unknown
     end
+  end
+
+  defp parse_availability(html) do
+    case find_availability_link(html) do
+      "http://schema.org/InStock" -> :available
+      "http://schema.org/OutOfStock" -> :unavailable
+      _ -> :unknown
+    end
+  end
+
+  defp find_availability_link(html) do
+    Floki.find(html, "link[itemprop=availability]")
+    |> Floki.attribute("href")
+    |> Enum.join("") # join instead of List.first to detected when there is more than one element found
   end
 
 end

@@ -5,7 +5,7 @@ defmodule BeerChecker do
     |> Enum.map(&send_beer_status/1)
   end
 
-  def send_beer_status({:available, url}) do
+  def send_beer_status({:available, url, _response}) do
     BeerChecker.Email.send("Beer available: #{url}", "Check website: #{url}")
     :available
   end
@@ -15,7 +15,7 @@ defmodule BeerChecker do
     :unknown
   end
 
-  def send_beer_status({:unavailable, _url}) do
+  def send_beer_status({:unavailable, _url, _response}) do
     :unavailable
   end
 
