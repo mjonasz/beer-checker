@@ -16,9 +16,11 @@ It is possible to run this app locally or to release for standalone usage on rem
 export MIX_ENV=prod # or dev
 mix release # create binaries
 # upload _build/$MIX_ENV/rel/beer_checker to server
+# on server
+export REPLACE_OS_VARS=true # better add to some ~/.profile
 beer_checker/bin/beer_checker start # run in background
 ```
-Logs can be found in `beer_checker/var/log/`
+Logs can be found in `~/beer_check.log` (remember to set `` environment variable)
 
 ### TODO
 * implement repeater for HTTP client (there are random errors from time to time)

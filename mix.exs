@@ -33,7 +33,10 @@ defmodule BeerChecker.Mixfile do
       {:bamboo_smtp, "~> 1.4.0"},
 
       # release tool
-      {:distillery, "~> 1.5", runtime: false}
+      {:distillery, "~> 1.5", runtime: false},
+
+      # for logging to specified file
+      {:logger_file_backend, "~> 0.0.10"}
     ]
   end
 end
