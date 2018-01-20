@@ -16,6 +16,7 @@ defmodule BeerChecker.Mikkeller do
   defp parse_response(response) do
     case response do
       %HTTPoison.Response{status_code: 200, body: body} -> parse_availability(body)
+      %HTTPoison.Response{status_code: 404} -> :unavailable
       _response -> :unknown
     end
   end
@@ -31,7 +32,7 @@ defmodule BeerChecker.Mikkeller do
   defp find_availability_link(html) do
     Floki.find(html, "link[itemprop=availability]")
     |> Floki.attribute("href")
-    |> Enum.join("") # join instead of List.first to detected when there is more than one element found
+    |> Enum.join("") # join instead of List.first to detect when there is more than one element found
   end
 
 end
