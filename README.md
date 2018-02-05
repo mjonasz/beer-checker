@@ -15,12 +15,12 @@ It is possible to run this app locally or to release for standalone usage on rem
 ```bash
 export MIX_ENV=prod # or dev
 mix release # create binaries
-# upload _build/$MIX_ENV/rel/beer_checker to server
+# upload _build/prod/rel/beer_checker/releases/<version>/beer_checker.tar.gz to server and untar
 # on server
 export REPLACE_OS_VARS=true # better add to some ~/.profile
 beer_checker/bin/beer_checker start # run in background
 ```
-Logs can be found in `~/beer_check.log` (remember to set `` environment variable)
+Logs can be found in `~/beer_check.log` (remember to set `REPLACE_OS_VARS` environment variable)
 
 ### TODO
 * extract **from** and **to** email fields to config (secret?)
