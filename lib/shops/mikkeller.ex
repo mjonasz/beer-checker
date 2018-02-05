@@ -1,4 +1,5 @@
 defmodule BeerChecker.Mikkeller do
+  import BeerChecker.Repeater
 
   @urls ['https://shop.mikkeller.dk/products/beer-geek-vanilla-shake-ba-bourbon']
 
@@ -7,7 +8,7 @@ defmodule BeerChecker.Mikkeller do
   end
 
   def check_single(url) do
-    case HTTPoison.get(url) do
+    case repeat(fn -> HTTPoison.get(url) end, 5) do
       {:ok, response} -> {parse_response(response), url, response}
       {_, response} -> {:unknown, url, response}
     end
