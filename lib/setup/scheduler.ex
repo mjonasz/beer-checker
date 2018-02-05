@@ -19,10 +19,8 @@ defmodule BeerChecker.Scheduler do
   end
 
   defp execute() do
-    Logger.info("starting scheduled job")
     results = BeerChecker.main()
-    Logger.info("finished ok")
-    Logger.debug("results: #{inspect(results)}")
+    Logger.info("results: #{inspect(results)}")
   end
 
   defp schedule_work(seconds \\ 60) do
