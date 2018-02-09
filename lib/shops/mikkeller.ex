@@ -1,7 +1,7 @@
 defmodule BeerChecker.Mikkeller do
   import BeerChecker.Repeater
 
-  @urls ['https://shop.mikkeller.dk/products/beer-geek-vanilla-shake-ba-bourbon']
+  @urls ['https://shop.mikkeller.dk/products/beer-geek-vanilla-shake-ba-bourbon', 'https://shop.mikkeller.dk/products/dos-brunch']
 
   def check(urls \\ @urls) do
     Enum.map(urls, fn (url) -> check_single(url) end)
